@@ -1,0 +1,29 @@
+body {
+  font-size: 14px;
+  color: black;
+}
+
+.small-cover-fixed-height{
+  height: 250px;
+}
+
+.small-cover-image {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.property-address a{
+  font-size: 14px;
+  color: black;
+  width: 300px;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.property-title{
+
+}
