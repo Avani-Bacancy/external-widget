@@ -110,6 +110,15 @@ function renderSeeMoreLink(link) {
 }
 
 $(document).ready(function () {
+	$(`.property_wrapper`).append(`<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center my-4">Featured Properties</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center" id="featured-properties-wrapper">
+    </div>
+  </div>`);
 	var properties = [];
 	var seeMoreLink = "https://narrabeenkenekt-thbmcrf.netlify.app/properties";
 	getPropertiesData().then(response => {
