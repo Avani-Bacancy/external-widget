@@ -100,17 +100,16 @@ function bedroomBathroomGarage(data, className) {
 	return ``;
 }
 
-function renderSeeMoreLink(link) {
-	if (link) {
-		return `<div class="row justify-content-center align-items-center see-more-link">
-				<a class="btn btn-primary" href=${link}>See More Properties</a>
+function renderSeeMoreLink() {
+	return `<div class="row justify-content-center align-items-center see-more-link">
+				<a class="btn btn-primary" href="https://narrabeenkenekt-thbmcrf.netlify.app/properties">
+					See More Properties
+					</a>
 			</div>`
-	}
-	return ``;
 }
 
 $(document).ready(function () {
-	$(`.property_wrapper`).append(`<div class="container">
+	$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container">
     <div class="row">
       <div class="col-12">
         <h2 class="text-center my-4">Featured Properties</h2>
@@ -120,7 +119,6 @@ $(document).ready(function () {
     </div>
   </div>`);
 	var properties = [];
-	var seeMoreLink = "https://narrabeenkenekt-thbmcrf.netlify.app/properties";
 	getPropertiesData().then(response => {
 		properties = response;
 		if (properties.length > 0) {
@@ -174,7 +172,7 @@ $(document).ready(function () {
         </div>
 			`);
 			}
-			$("#featured-properties-wrapper").append(renderSeeMoreLink(seeMoreLink));
+			$("#featured-properties-wrapper").append(renderSeeMoreLink());
 		}
 	});
 });
