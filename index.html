@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="icon" href="./images/kenekt.png" type="image/gif" sizes="16x16">
   <link rel="stylesheet" type="text/css" href="style/index.css"/>
   <title>Featured Property</title>
@@ -21,85 +22,7 @@
         <h2 class="text-center my-4">Featured Properties</h2>
       </div>
     </div>
-    <div class="row justify-content-center align-items-center">
-      <div class="col-md-4">
-        <div class="card mb-5">
-          <div class="small-cover-fixed-height">
-            <a href="https://hashtagportal.com.au/property/PAIG/7056"
-               rel="noopener noreferrer" target="_blank">
-              <img src="./images/home1.jpg" class="card-img-top w-100 h-100 small-cover-image"
-                   alt="Creekside Estate Nambour"/>
-            </a>
-          </div>
-          <div class="card-body p-4 card-body-fixed-height">
-            <div class="property-address mb-2">
-              <a href="https://hashtagportal.com.au/property/PAIG/7056"
-                 rel="noopener noreferrer" target="_blank">
-                Impression Drive,&nbsp;NAMBOUR, QLD, 4560
-              </a>
-            </div>
-            <p class="property-7056">
-              Project ID: 7056
-            </p>
-            <hr/>
-            <h6 class="font-weight-bold property-title">
-              Creekside Estate Nambour
-            </h6>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-5">
-          <div class="small-cover-fixed-height">
-            <a href="https://hashtagportal.com.au/property/PAIG/2538"
-               rel="noopener noreferrer" target="_blank">
-              <img src="./images/home2.jpg" class="card-img-top w-100 h-100 small-cover-image"
-                   alt="Origin on Fifth Avenue Project Austral"/>
-            </a>
-          </div>
-          <div class="card-body p-4 card-body-fixed-height">
-            <div class="property-address mb-2">
-              <a href="https://hashtagportal.com.au/property/PAIG/2538"
-                 rel="noopener noreferrer" target="_blank">
-                230 Fifth Avenue, AUSTRAL, NSW, 2179
-              </a>
-            </div>
-            <p>
-              Project ID: 2538
-            </p>
-            <hr/>
-            <h6 class="font-weight-bold property-title">
-              Origin on Fifth Avenue Project Austral
-            </h6>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card mb-5">
-          <div class="small-cover-fixed-height">
-            <a href="https://hashtagportal.com.au/property/PAIG/3106"
-               rel="noopener noreferrer" target="_blank">
-              <img src="./images/home3.jpg" class="card-img-top w-100 h-100 small-cover-image"
-                   alt="Champions Estate Delacombe"/>
-            </a>
-          </div>
-          <div class="card-body p-4 card-body-fixed-height">
-            <div class="property-address mb-2">
-              <a href="https://hashtagportal.com.au/property/PAIG/3106"
-                 rel="noopener noreferrer" target="_blank">
-                Carngham Road, DELACOMBE, VIC, 3356
-              </a>
-            </div>
-            <p>Project ID: 3106</p>
-            <hr/>
-            <h6 class="font-weight-bold property-title">
-              Champions Estate Delacombe
-            </h6>
-          </div>
-        </div>
-      </div>
+    <div class="row justify-content-center align-items-center" id="featured-properties-wrapper">
     </div>
   </div>
 </div>
@@ -115,5 +38,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+        integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+        crossorigin="anonymous"></script>
+<script src="./js/featured-properties.js"></script>
 </body>
 </html>
