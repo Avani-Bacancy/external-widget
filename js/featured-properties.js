@@ -73,26 +73,30 @@ function renderFullTernKey(data) {
 }
 
 function bedroomBathroomGarage(data, className) {
-	if (data && data.property_type !== "Project") {
-		if (data.bedroom) {
-			$(`.${className}`).prepend(`<li class="mr-3">
+	setTimeout(
+		function () {
+			if (data && data.property_type !== "Project") {
+				if (data.bedroom) {
+					$(`.${className}`).prepend(`<li class="mr-3">
 					<span class="fa fa-bed text-muted mr-1" />${data.bedroom}
 					</li>
 				`);
-		}
-		if (data.bathroom) {
-			$(`.${className}`).prepend(`<li class="mr-3">
+				}
+				if (data.bathroom) {
+					$(`.${className}`).prepend(`<li class="mr-3">
  					<span class="fa fa-bath text-muted mr-1" />${data.bathroom}
  					</li>
 				`);
-		}
-		if (data.garage) {
-			$(`.${className}`).prepend(`<li class="mr-3">
+				}
+				if (data.garage) {
+					$(`.${className}`).prepend(`<li class="mr-3">
  					<span class="fa fa-car text-muted mr-1" />${data.garage}
  					</li>
 				`);
-		}
-	}
+				}
+			}
+		}, 1000);
+
 	return ``;
 }
 
@@ -142,10 +146,10 @@ $(document).ready(function () {
 								</a>
 							</div>
 							<ul class="mb-1 bed-bath-garage bed-bath-icons-${properties[i].paig_id}">
-								${bedroomBathroomGarage(properties[i], "bed-bath-icons-" + properties[i].paig_id)}
 								<li class="mr-2">
 									Project ID: ${properties[i].paig_id}
 								</li>
+								${bedroomBathroomGarage(properties[i], "bed-bath-icons-" + properties[i].paig_id)}
 							</ul>
 							${renderFullTernKey(properties[i].build_contract_pricing)}
 							<hr/>
