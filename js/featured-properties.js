@@ -37,7 +37,7 @@ loadKenektCss( kenetCss);
 include('https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js', () => {});
 include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
 	$(document).ready(function () {
-		$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container">
+		$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container kenekt-container">
     <div class="row">
       <div class="col-12">
         <h2 class="text-center my-4">Featured Properties</h2>
@@ -100,7 +100,7 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
         </div>
 			`);
 				}
-				$(".kenekt-featured-properties-wrapper-785663434").append(renderSeeMoreLink());
+				$(".kenekt-container").append(renderSeeMoreLink());
 			}
 		});
 	});
