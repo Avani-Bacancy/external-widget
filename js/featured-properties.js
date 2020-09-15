@@ -1,5 +1,43 @@
-$(document).ready(function () {
-	$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container">
+function loadKenektCss(files) {
+	var head = document.getElementsByTagName('head')[0];
+	for (var i = 0; i< files.length; i++){
+		var link = document.createElement('link');
+		link.href = files[i];
+		link.rel = "stylesheet";
+		link.type="text/css";
+		head.appendChild(link);
+	}
+}
+
+
+function include(files, onload) {
+	var head = document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.src = files;
+	script.type = 'text/javascript';
+	script.onload = script.onreadystatechange = function() {
+		if (script.readyState) {
+			if (script.readyState === 'complete' || script.readyState === 'loaded') {
+				script.onreadystatechange = null;
+				onload();
+			}
+		}
+		else {
+			onload();
+		}
+	};
+	head.appendChild(script);
+}
+
+var kenetCss = [
+	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
+	"./style/index.css"
+];
+loadKenektCss( kenetCss);
+include('https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js', () => {});
+include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
+	$(document).ready(function () {
+		$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container">
     <div class="row">
       <div class="col-12">
         <h2 class="text-center my-4">Featured Properties</h2>
@@ -8,12 +46,12 @@ $(document).ready(function () {
     <div class="row justify-content-center align-items-center" id="featured-properties-wrapper">
     </div>
   </div>`);
-	var properties = [];
-	getPropertiesData().then(response => {
-		properties = response;
-		if (properties.length > 0) {
-			for (var i = 0; i < properties.length; i++) {
-				$("#featured-properties-wrapper").append(`
+		var properties = [];
+		getPropertiesData().then(response => {
+			properties = response;
+			if (properties.length > 0) {
+				for (var i = 0; i < properties.length; i++) {
+					$("#featured-properties-wrapper").append(`
         <div class="col-md-4">
           <div class="card mb-5">
             <div class="small-cover-fixed-height position-relative">
@@ -61,9 +99,10 @@ $(document).ready(function () {
           </div>
         </div>
 			`);
+				}
+				$(".kenekt-featured-properties-wrapper-785663434").append(renderSeeMoreLink());
 			}
-			$(".kenekt-featured-properties-wrapper-785663434").append(renderSeeMoreLink());
-		}
+		});
 	});
 });
 
