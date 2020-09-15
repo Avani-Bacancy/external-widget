@@ -1,3 +1,72 @@
+$(document).ready(function () {
+	$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center my-4">Featured Properties</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center" id="featured-properties-wrapper">
+    </div>
+  </div>`);
+	var properties = [];
+	getPropertiesData().then(response => {
+		properties = response;
+		if (properties.length > 0) {
+			for (var i = 0; i < properties.length; i++) {
+				$("#featured-properties-wrapper").append(`
+        <div class="col-md-4">
+          <div class="card mb-5">
+            <div class="small-cover-fixed-height position-relative">
+              <a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
+                 rel="noopener noreferrer" target="_blank">
+                <img src="${properties[i].image}" class="card-img-top w-100 h-100 small-cover-image"
+                     alt="${properties[i].full_address}" >
+              </a>
+               <div class="position-absolute top-0 left-0 pt-3 pl-3">
+                  <span class="badge badge-white">
+                  	<h5 class="text-dark mb-0 px-1 font-weight-bold">
+											${renderPrice(properties[i].display_price_text, properties[i].price, properties[i].from_price)}                 		
+                  	</h5>
+                  </span>
+							 </div>
+              <div class="position-absolute top-0 right-0 pt-3 pr-3">
+								${renderPropertyStatus(properties[i].status, properties[i].listing_count)}
+								</span>
+              </div>
+            </div>
+            <div class="card-body p-4 card-body-fixed-height">
+							<div class="property-address mb-3">
+								<a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
+									 rel="noopener noreferrer" target="_blank">
+									 <img src="./images/marker.svg" alt=${properties[i].address} class="map-marker" />
+									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
+								</a>
+							</div>
+							<ul class="mb-1 bed-bath-garage bed-bath-icons-${properties[i].paig_id}">
+								<li class="mr-2">
+									Project ID: ${properties[i].paig_id}
+								</li>
+								${bedroomBathroomGarage(properties[i], "bed-bath-icons-" + properties[i].paig_id)}
+							</ul>
+							${renderFullTernKey(properties[i].build_contract_pricing)}
+							<hr/>
+							<div>
+								<span class="d-block text-muted listed-date">
+									Listed on&nbsp;
+									${renderDate(properties[i].date_listed)}
+								</span>
+								<h6 class="property-address mt-2">${properties[i].title}</h6>
+							</div>
+            </div>
+          </div>
+        </div>
+			`);
+			}
+			$(".kenekt-featured-properties-wrapper-785663434").append(renderSeeMoreLink());
+		}
+	});
+});
+
 async function getPropertiesData() {
 	var propertyNoList = [2538, 7056, 7094];
 	const serverRoot = "https://api.kenekt.com.au/api";
@@ -107,72 +176,3 @@ function renderSeeMoreLink() {
 					</a>
 			</div>`
 }
-
-$(document).ready(function () {
-	$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h2 class="text-center my-4">Featured Properties</h2>
-      </div>
-    </div>
-    <div class="row justify-content-center align-items-center" id="featured-properties-wrapper">
-    </div>
-  </div>`);
-	var properties = [];
-	getPropertiesData().then(response => {
-		properties = response;
-		if (properties.length > 0) {
-			for (var i = 0; i < properties.length; i++) {
-				$("#featured-properties-wrapper").append(`
-        <div class="col-md-4">
-          <div class="card mb-5">
-            <div class="small-cover-fixed-height position-relative">
-              <a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
-                 rel="noopener noreferrer" target="_blank">
-                <img src="${properties[i].image}" class="card-img-top w-100 h-100 small-cover-image"
-                     alt="${properties[i].full_address}" >
-              </a>
-               <div class="position-absolute top-0 left-0 pt-3 pl-3">
-                  <span class="badge badge-white">
-                  	<h5 class="text-dark mb-0 px-1 font-weight-bold">
-											${renderPrice(properties[i].display_price_text, properties[i].price, properties[i].from_price)}                 		
-                  	</h5>
-                  </span>
-							 </div>
-              <div class="position-absolute top-0 right-0 pt-3 pr-3">
-								${renderPropertyStatus(properties[i].status, properties[i].listing_count)}
-								</span>
-              </div>
-            </div>
-            <div class="card-body p-4 card-body-fixed-height">
-							<div class="property-address mb-3">
-								<a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
-									 rel="noopener noreferrer" target="_blank">
-									 <img src="./images/marker.svg" alt=${properties[i].address} class="map-marker" />
-									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
-								</a>
-							</div>
-							<ul class="mb-1 bed-bath-garage bed-bath-icons-${properties[i].paig_id}">
-								<li class="mr-2">
-									Project ID: ${properties[i].paig_id}
-								</li>
-								${bedroomBathroomGarage(properties[i], "bed-bath-icons-" + properties[i].paig_id)}
-							</ul>
-							${renderFullTernKey(properties[i].build_contract_pricing)}
-							<hr/>
-							<div>
-								<span class="d-block text-muted listed-date">
-									Listed on&nbsp;
-									${renderDate(properties[i].date_listed)}
-								</span>
-								<h6 class="property-address mt-2">${properties[i].title}</h6>
-							</div>
-            </div>
-          </div>
-        </div>
-			`);
-			}
-			$(".kenekt-featured-properties-wrapper-785663434").append(renderSeeMoreLink());
-		}
-	});
-});
