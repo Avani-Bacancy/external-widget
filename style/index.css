@@ -52,14 +52,32 @@ body {
 .property-address a {
   color: black;
   text-decoration: none;
+  display: flex;
+  align-items: baseline;
 }
 
-.property-title {
-
+.property-address a img {
+    height: 14px;
+    width: 11px;
 }
 
 .bed-bath-garage {
   display: flex;
   list-style-type: none;
   padding: 0;
+}
+
+.bed-bath-garage li {
+  display: flex;
+  align-items: center;
+}
+
+.bed-bath-garage li img {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+}
+
+.bath-icon {
+  height: 12px!important;
 }

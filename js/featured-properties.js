@@ -78,19 +78,19 @@ function bedroomBathroomGarage(data, className) {
 			if (data && data.property_type !== "Project") {
 				if (data.bedroom) {
 					$(`.${className}`).prepend(`<li class="mr-3">
-					<span class="fa fa-bed text-muted mr-1" />${data.bedroom}
+					<img src="./images/bed.svg" alt="bedroom"> ${data.bedroom}
 					</li>
 				`);
 				}
 				if (data.bathroom) {
 					$(`.${className}`).prepend(`<li class="mr-3">
- 					<span class="fa fa-bath text-muted mr-1" />${data.bathroom}
+ 					<img src="./images/bath.svg" alt="bath" class="bath-icon"> ${data.bathroom}
  					</li>
 				`);
 				}
 				if (data.garage) {
 					$(`.${className}`).prepend(`<li class="mr-3">
- 					<span class="fa fa-car text-muted mr-1" />${data.garage}
+ 					<img src="./images/car.svg" alt="car"> ${data.garage}
  					</li>
 				`);
 				}
@@ -148,8 +148,8 @@ $(document).ready(function () {
 							<div class="property-address mb-3">
 								<a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
 									 rel="noopener noreferrer" target="_blank">
-									 <i class="fa fa-map-marker" aria-hidden="true" />&nbsp;
-									 ${properties[i].address},&nbsp;${properties[i].location}
+									 <img src="./images/marker.svg" alt=${properties[i].address} class="map-marker" />
+									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
 								</a>
 							</div>
 							<ul class="mb-1 bed-bath-garage bed-bath-icons-${properties[i].paig_id}">
