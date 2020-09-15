@@ -172,7 +172,7 @@ $(document).ready(function () {
         </div>
 			`);
 			}
-			$("#featured-properties-wrapper").append(renderSeeMoreLink());
+			$(".kenekt-featured-properties-wrapper-785663434").append(renderSeeMoreLink());
 		}
 	});
 });
