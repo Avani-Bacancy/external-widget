@@ -76,7 +76,7 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
 							<div class="kenekt-property-address mb-3">
 								<a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
 									 rel="noopener noreferrer" target="_blank">
-									 <img src="./images/marker.svg" alt=${properties[i].address} class="map-marker" />
+									 <img src="https://keen-wing-7b6120.netlify.app/images/marker.svg" alt=${properties[i].address} class="map-marker" />
 									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
 								</a>
 							</div>
@@ -186,19 +186,19 @@ function bedroomBathroomGarage(data, className) {
 			if (data && data.property_type !== "Project") {
 				if (data.bedroom) {
 					$(`.${className}`).prepend(`<li class="mr-3">
-					<img src="./images/bed.svg" alt="bedroom"> ${data.bedroom}
+					<img src="https://keen-wing-7b6120.netlify.app/images/bed.svg" alt="bedroom"> ${data.bedroom}
 					</li>
 				`);
 				}
 				if (data.bathroom) {
 					$(`.${className}`).prepend(`<li class="mr-3">
- 					<img src="./images/bath.svg" alt="bathroom" class="kenekt-bath-icon "> ${data.bathroom}
+ 					<img src="https://keen-wing-7b6120.netlify.app/images/bath.svg" alt="bathroom" class="kenekt-bath-icon "> ${data.bathroom}
  					</li>
 				`);
 				}
 				if (data.garage) {
 					$(`.${className}`).prepend(`<li class="mr-3">
- 					<img src="./images/car.svg" alt="car"> ${data.garage}
+ 					<img src="https://keen-wing-7b6120.netlify.app/images/car.svg" alt="car"> ${data.garage}
  					</li>
 				`);
 				}
