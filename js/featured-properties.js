@@ -28,10 +28,10 @@ function include(files, onload) {
 	};
 	head.appendChild(script);
 }
-
+var serverUrl = "https://keen-wing-7b6120.netlify.app";
 var kenetCss = [
 	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
-	"https://keen-wing-7b6120.netlify.app/style/kenekt-featured-properties.css"
+	serverUrl+"/style/kenekt-featured-properties.css"
 ];
 loadKenektCss( kenetCss);
 include('https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js', () => {});
@@ -76,7 +76,7 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
 							<div class="kenekt-property-address mb-3">
 								<a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
 									 rel="noopener noreferrer" target="_blank">
-									 <img src="https://keen-wing-7b6120.netlify.app/images/marker.svg" alt=${properties[i].address} class="map-marker" />
+									 <img src="${serverUrl}/images/marker.svg" alt=${properties[i].address} class="map-marker" />
 									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
 								</a>
 							</div>
@@ -186,19 +186,19 @@ function bedroomBathroomGarage(data, className) {
 			if (data && data.property_type !== "Project") {
 				if (data.bedroom) {
 					$(`.${className}`).prepend(`<li class="mr-3">
-					<img src="https://keen-wing-7b6120.netlify.app/images/bed.svg" alt="bedroom"> ${data.bedroom}
+					<img src="${serverUrl}/images/bed.svg" alt="bedroom"> ${data.bedroom}
 					</li>
 				`);
 				}
 				if (data.bathroom) {
 					$(`.${className}`).prepend(`<li class="mr-3">
- 					<img src="https://keen-wing-7b6120.netlify.app/images/bath.svg" alt="bathroom" class="kenekt-bath-icon "> ${data.bathroom}
+ 					<img src="${serverUrl}/images/bath.svg" alt="bathroom" class="kenekt-bath-icon "> ${data.bathroom}
  					</li>
 				`);
 				}
 				if (data.garage) {
 					$(`.${className}`).prepend(`<li class="mr-3">
- 					<img src="https://keen-wing-7b6120.netlify.app/images/car.svg" alt="car"> ${data.garage}
+ 					<img src="${serverUrl}/images/car.svg" alt="car"> ${data.garage}
  					</li>
 				`);
 				}
