@@ -31,7 +31,7 @@ function include(files, onload) {
 
 var kenetCss = [
 	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
-	"./style/index.css"
+	"./style/kenekt-featured-properties.css"
 ];
 loadKenektCss( kenetCss);
 include('https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js', () => {});
