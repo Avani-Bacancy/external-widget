@@ -54,46 +54,46 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
 					$("#featured-properties-wrapper").append(`
         <div class="col-md-4">
           <div class="card mb-5">
-            <div class="small-cover-fixed-height position-relative">
+            <div class="kenekt-small-cover-fixed-height position-relative">
               <a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
                  rel="noopener noreferrer" target="_blank">
-                <img src="${properties[i].image}" class="card-img-top w-100 h-100 small-cover-image"
+                <img src="${properties[i].image}" class="card-img-top w-100 h-100 kenekt-small-cover-image"
                      alt="${properties[i].full_address}" >
               </a>
-               <div class="position-absolute top-0 left-0 pt-3 pl-3">
-                  <span class="badge badge-white">
+               <div class="position-absolute kenekt-top-0 kenekt-left-0 pt-3 pl-3">
+                  <span class="badge kenekt-badge-white">
                   	<h5 class="text-dark mb-0 px-1 font-weight-bold">
 											${renderPrice(properties[i].display_price_text, properties[i].price, properties[i].from_price)}                 		
                   	</h5>
                   </span>
 							 </div>
-              <div class="position-absolute top-0 right-0 pt-3 pr-3">
+              <div class="position-absolute kenekt-top-0 kenekt-right-0 pt-3 pr-3">
 								${renderPropertyStatus(properties[i].status, properties[i].listing_count)}
 								</span>
               </div>
             </div>
-            <div class="card-body p-4 card-body-fixed-height">
-							<div class="property-address mb-3">
+            <div class="card-body p-4 kenekt-card-body-fixed-height">
+							<div class="kenekt-property-address mb-3">
 								<a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
 									 rel="noopener noreferrer" target="_blank">
 									 <img src="./images/marker.svg" alt=${properties[i].address} class="map-marker" />
 									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
 								</a>
 							</div>
-							<ul class="mb-1 bed-bath-garage bed-bath-icons-${properties[i].paig_id}">
+							<ul class="mb-1 kenekt-bed-bath-garage kenekt-bed-bath-icons-${properties[i].paig_id}">
 								<li class="mr-2">
 									Project ID: ${properties[i].paig_id}
 								</li>
-								${bedroomBathroomGarage(properties[i], "bed-bath-icons-" + properties[i].paig_id)}
+								${bedroomBathroomGarage(properties[i], "kenekt-bed-bath-icons-" + properties[i].paig_id)}
 							</ul>
 							${renderFullTernKey(properties[i].build_contract_pricing)}
 							<hr/>
 							<div>
-								<span class="d-block text-muted listed-date">
+								<span class="d-block text-muted kenekt-listed-date">
 									Listed on&nbsp;
 									${renderDate(properties[i].date_listed)}
 								</span>
-								<h6 class="property-address mt-2">${properties[i].title}</h6>
+								<h6 class="kenekt-property-address mt-2">${properties[i].title}</h6>
 							</div>
             </div>
           </div>
@@ -192,7 +192,7 @@ function bedroomBathroomGarage(data, className) {
 				}
 				if (data.bathroom) {
 					$(`.${className}`).prepend(`<li class="mr-3">
- 					<img src="./images/bath.svg" alt="bath" class="bath-icon"> ${data.bathroom}
+ 					<img src="./images/bath.svg" alt="bathroom" class="kenekt-bath-icon "> ${data.bathroom}
  					</li>
 				`);
 				}

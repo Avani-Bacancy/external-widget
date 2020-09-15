@@ -3,42 +3,42 @@ body {
   color: black;
 }
 
-.small-cover-fixed-height {
+.kenekt-small-cover-fixed-height {
   height: 250px;
   position: relative !important;
 }
 
-.small-cover-image {
+.kenekt-small-cover-image {
   max-height: 250px;
   width: 100%;
   object-fit: cover;
 }
 
-.badge-white {
+.kenekt-badge-white {
   background-color: white;
 }
 
-.listed-date {
+.kenekt-listed-date {
   font-size: 12px;
 }
 
-.left-0 {
+.kenekt-left-0 {
   left: 0;
 }
 
-.top-0 {
+.kenekt-top-0 {
   top: 0;
 }
 
-.right-0 {
+.kenekt-right-0 {
   right: 0;
 }
 
-.card-body-fixed-height {
+.kenekt-card-body-fixed-height {
   height: 210px;
 }
 
-.property-address {
+.kenekt-property-address {
   font-size: 14px;
   color: black;
   width: 300px;
@@ -49,35 +49,35 @@ body {
   font-weight: 600;
 }
 
-.property-address a {
+.kenekt-property-address a {
   color: black;
   text-decoration: none;
   display: flex;
   align-items: baseline;
 }
 
-.property-address a img {
+.kenekt-property-address a img {
     height: 14px;
     width: 11px;
 }
 
-.bed-bath-garage {
+.kenekt-bed-bath-garage {
   display: flex;
   list-style-type: none;
   padding: 0;
 }
 
-.bed-bath-garage li {
+.kenekt-bed-bath-garage li {
   display: flex;
   align-items: center;
 }
 
-.bed-bath-garage li img {
+.kenekt-bed-bath-garage li img {
   width: 14px;
   height: 14px;
   margin-right: 4px;
 }
 
-.bath-icon {
+.kenekt-bath-icon {
   height: 12px!important;
 }
