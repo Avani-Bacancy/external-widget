@@ -27,7 +27,7 @@ function include(files, onload) {
 	head.appendChild(script);
 }
 
-var serverUrl = "https://kapi-test.herokuapp.com/external-widget/";
+var serverUrl = "https://keen-wing-7b6120.netlify.app/";
 
 var kenetCss = [
 	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
