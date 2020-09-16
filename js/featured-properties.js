@@ -9,7 +9,6 @@ function loadKenektCss(files) {
 	}
 }
 
-
 function include(files, onload) {
 	var head = document.getElementsByTagName('head')[0];
 	var script = document.createElement('script');
@@ -30,7 +29,6 @@ function include(files, onload) {
 
 var serverUrl = "https://kapi-test.herokuapp.com/external-widget/";
 
-console.log("AGENCY ID::::::::::" + kenekt_agency_id_defined);
 var kenetCss = [
 	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
 	serverUrl + "/style/kenekt-featured-properties.css"
@@ -64,11 +62,7 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function () {
                      alt="${properties[i].address}" >
               </a>
                <div class="position-absolute kenekt-top-0 kenekt-left-0 pt-3 pl-3">
-                  <span class="badge kenekt-badge-white">
-                  	<h5 class="text-dark mb-0 px-1 font-weight-bold">
-											${renderPrice(properties[i].display_price_text, properties[i].price, properties[i].from_price)}
-                  	</h5>
-                  </span>
+							 		${renderPrice(properties[i].display_price_text, properties[i].price, properties[i].from_price)}
 							 </div>
               <div class="position-absolute kenekt-top-0 kenekt-right-0 pt-3 pr-3">
 								${renderPropertyStatus(properties[i].status, properties[i].listing_count)}
@@ -110,22 +104,17 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function () {
 });
 
 async function getPropertiesData() {
-	var propertyNoList = [2538, 7056, 7094];
-	const serverRoot = "https://api.kenekt.com.au/api";
-	let request = [];
-	let propertiesData = [];
-	propertyNoList.forEach(propertyNo => {
-		request.push(
-			axios.get(serverRoot + "/paig_property_id/" + propertyNo + "?agency_id=" + kenekt_agency_id_defined)
-		)
-	});
-	return Promise.all(request).then(allData => {
-		allData.forEach(properties => {
-			if (properties.data && properties.data.data) {
-				propertiesData.push(properties.data.data);
-			}
-		});
-		return propertiesData;
+	const serverRoot = "https://kapi-test.herokuapp.com/api";
+	return axios.get(serverRoot + "/promoted/properties/" + kenekt_agency_id_defined, {
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json",
+		},
+	}).then(response => {
+		if (response && response.data) {
+			return response.data.data;
+		}
+		return [];
 	});
 }
 
@@ -143,14 +132,21 @@ function renderDate(date) {
 	return "";
 }
 
+function renderFinalPrice(data) {
+		return `<span class="badge kenekt-badge-white">
+            	<h5 class="text-dark mb-0 px-1 font-weight-bold">
+            		${data}
+              </h5>
+						</span>`
+}
 function renderPrice(displayPriceText, price, fromPrice) {
 	if (displayPriceText) {
-		return displayPriceText;
+		return renderFinalPrice(displayPriceText);
 	} else if (price) {
-		return price;
-	} else {
-		return fromPrice;
-	}
+		return renderFinalPrice(price);
+	} else if (fromPrice) {
+		return renderFinalPrice(fromPrice);
+	} else return ``
 }
 
 function renderStatus(status, count) {
