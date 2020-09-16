@@ -65,20 +65,19 @@ body {
 }
 
 .kenekt-bed-bath-garage {
-  display: flex;
   list-style-type: none;
   padding: 0;
 }
 
 .kenekt-bed-bath-garage li {
-  display: flex;
-  align-items: center;
+  display: inline-block;
 }
 
 .kenekt-bed-bath-garage li img {
   width: 14px;
   height: 14px;
   margin-right: 4px;
+  padding-top: 2px ;
 }
 
 .kenekt-bath-icon {
