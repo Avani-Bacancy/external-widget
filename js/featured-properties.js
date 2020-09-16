@@ -77,8 +77,8 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function () {
 							<div class="kenekt-property-address mb-3">
 								<a href="https://portal.kenekt.com.au/property/${kenekt_agency_id_defined}/${properties[i].paig_id}"
 									 rel="noopener noreferrer" target="_blank">
-									 <img src="${serverUrl}/images/marker.svg" alt=${properties[i].address} class="map-marker" />
-									 &nbsp; <span class="kenekt-truncate"> ${properties[i].address},&nbsp;${properties[i].location}</span>
+									 <img src="${serverUrl}/images/marker.svg" alt=${properties[i].address} />
+									 &nbsp;<span class="kenekt-truncate"> ${properties[i].address},&nbsp;${properties[i].location}</span>
 								</a>
 							</div>
 							<ul class="mb-1 kenekt-bed-bath-garage kenekt-bed-bath-icons-${properties[i].paig_id}">
