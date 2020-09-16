@@ -41,19 +41,22 @@ body {
 .kenekt-property-address {
   font-size: 14px;
   color: black;
+  font-weight: 600;
+}
+
+.kenekt-truncate {
   width: 300px;
   max-width: 300px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-weight: 600;
 }
 
 .kenekt-property-address a {
   color: black;
   text-decoration: none;
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .kenekt-property-address a img {
@@ -82,8 +85,12 @@ body {
   height: 12px !important;
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (max-width: 991px) {
   .kenekt-badge-title {
     font-size: 14px;
+  }
+  .kenekt-truncate {
+    width: 250px;
+    max-width: 250px;
   }
 }

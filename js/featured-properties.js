@@ -78,7 +78,7 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function () {
 								<a href="https://portal.kenekt.com.au/property/${kenekt_agency_id_defined}/${properties[i].paig_id}"
 									 rel="noopener noreferrer" target="_blank">
 									 <img src="${serverUrl}/images/marker.svg" alt=${properties[i].address} class="map-marker" />
-									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
+									 &nbsp; <span class="kenekt-truncate"> ${properties[i].address},&nbsp;${properties[i].location}</span>
 								</a>
 							</div>
 							<ul class="mb-1 kenekt-bed-bath-garage kenekt-bed-bath-icons-${properties[i].paig_id}">
@@ -94,7 +94,7 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function () {
 									Listed on&nbsp;
 									${renderDate(properties[i].date_listed)}
 								</span>
-								<h6 class="kenekt-property-address mt-2">${properties[i].title}</h6>
+								<h6 class="kenekt-property-address mt-2 kenekt-truncate">${properties[i].title}</h6>
 							</div>
             </div>
           </div>
