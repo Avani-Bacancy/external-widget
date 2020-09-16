@@ -134,7 +134,7 @@ function renderDate(date) {
 
 function renderFinalPrice(data) {
 		return `<span class="badge kenekt-badge-white">
-            	<h5 class="text-dark mb-0 px-1 font-weight-bold">
+            	<h5 class="text-dark mb-0 px-1 font-weight-bold kenekt-badge-title">
             		${data}
               </h5>
 						</span>`
@@ -151,9 +151,9 @@ function renderPrice(displayPriceText, price, fromPrice) {
 
 function renderStatus(status, count) {
 	if (count) {
-		return `<h5 class="text-white mb-0 px-1 font-weight-bold">${count}&nbsp;${status}</h5>`;
+		return `<h5 class="text-white mb-0 px-1 font-weight-bold kenekt-badge-title">${count}&nbsp;${status}</h5>`;
 	}
-	return `<h5 class="text-white mb-0 px-1 font-weight-bold">${status}</h5>`;
+	return `<h5 class="text-white mb-0 px-1 font-weight-bold kenekt-badge-title">${status}</h5>`;
 }
 
 function renderPropertyStatus(status, count) {

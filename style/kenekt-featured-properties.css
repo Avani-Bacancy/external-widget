@@ -81,3 +81,9 @@ body {
 .kenekt-bath-icon {
   height: 12px !important;
 }
+
+@media screen and (min-width: 991px) {
+  .kenekt-badge-title {
+    font-size: 14px;
+  }
+}
