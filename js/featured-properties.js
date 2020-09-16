@@ -1,10 +1,10 @@
 function loadKenektCss(files) {
 	var head = document.getElementsByTagName('head')[0];
-	for (var i = 0; i< files.length; i++){
+	for (var i = 0; i < files.length; i++) {
 		var link = document.createElement('link');
 		link.href = files[i];
 		link.rel = "stylesheet";
-		link.type="text/css";
+		link.type = "text/css";
 		head.appendChild(link);
 	}
 }
@@ -15,27 +15,30 @@ function include(files, onload) {
 	var script = document.createElement('script');
 	script.src = files;
 	script.type = 'text/javascript';
-	script.onload = script.onreadystatechange = function() {
+	script.onload = script.onreadystatechange = function () {
 		if (script.readyState) {
 			if (script.readyState === 'complete' || script.readyState === 'loaded') {
 				script.onreadystatechange = null;
 				onload();
 			}
-		}
-		else {
+		} else {
 			onload();
 		}
 	};
 	head.appendChild(script);
 }
-var serverUrl = "https://keen-wing-7b6120.netlify.app";
+
+var serverUrl = "https://kapi-test.herokuapp.com/external-widget/";
+
+console.log("AGENCY ID::::::::::" + kenekt_agency_id_defined);
 var kenetCss = [
 	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
-	serverUrl+"/style/kenekt-featured-properties.css"
+	serverUrl + "/style/kenekt-featured-properties.css"
 ];
-loadKenektCss( kenetCss);
-include('https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js', () => {});
-include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
+loadKenektCss(kenetCss);
+include('https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js', () => {
+});
+include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function () {
 	$(document).ready(function () {
 		$(`.kenekt-featured-properties-wrapper-785663434`).append(`<div class="container kenekt-container">
     <div class="row">
@@ -55,15 +58,15 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
         <div class="col-md-4">
           <div class="card mb-5">
             <div class="kenekt-small-cover-fixed-height position-relative">
-              <a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
+              <a href="https://portal.kenekt.com.au/property/${kenekt_agency_id_defined}/${properties[i].paig_id}"
                  rel="noopener noreferrer" target="_blank">
                 <img src="${properties[i].image}" class="card-img-top w-100 h-100 kenekt-small-cover-image"
-                     alt="${properties[i].full_address}" >
+                     alt="${properties[i].address}" >
               </a>
                <div class="position-absolute kenekt-top-0 kenekt-left-0 pt-3 pl-3">
                   <span class="badge kenekt-badge-white">
                   	<h5 class="text-dark mb-0 px-1 font-weight-bold">
-											${renderPrice(properties[i].display_price_text, properties[i].price, properties[i].from_price)}                 		
+											${renderPrice(properties[i].display_price_text, properties[i].price, properties[i].from_price)}
                   	</h5>
                   </span>
 							 </div>
@@ -74,7 +77,7 @@ include('https://code.jquery.com/jquery-3.2.1.slim.min.js', function() {
             </div>
             <div class="card-body p-4 kenekt-card-body-fixed-height">
 							<div class="kenekt-property-address mb-3">
-								<a href="https://narrabeenkenekt-thbmcrf.netlify.app/property/PAIG/${properties[i].paig_id}"
+								<a href="https://portal.kenekt.com.au/property/${kenekt_agency_id_defined}/${properties[i].paig_id}"
 									 rel="noopener noreferrer" target="_blank">
 									 <img src="${serverUrl}/images/marker.svg" alt=${properties[i].address} class="map-marker" />
 									 &nbsp;${properties[i].address},&nbsp;${properties[i].location}
@@ -113,7 +116,7 @@ async function getPropertiesData() {
 	let propertiesData = [];
 	propertyNoList.forEach(propertyNo => {
 		request.push(
-			axios.get(serverRoot + "/paig_property_id/" + propertyNo + "?agency_id=PAIG")
+			axios.get(serverRoot + "/paig_property_id/" + propertyNo + "?agency_id=" + kenekt_agency_id_defined)
 		)
 	});
 	return Promise.all(request).then(allData => {
@@ -210,7 +213,7 @@ function bedroomBathroomGarage(data, className) {
 
 function renderSeeMoreLink() {
 	return `<div class="row justify-content-center align-items-center see-more-link">
-				<a class="btn btn-primary" href="https://narrabeenkenekt-thbmcrf.netlify.app/properties">
+				<a class="btn btn-primary" href="https://portal.kenekt.com.au/properties">
 					See More Properties
 					</a>
 			</div>`
