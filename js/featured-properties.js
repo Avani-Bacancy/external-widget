@@ -7,6 +7,10 @@ function loadKenektCss(files) {
 		link.type = "text/css";
 		head.appendChild(link);
 	}
+	var meta = document.createElement("meta");
+	meta.name= "viewport";
+	meta.content = "width=device-width, initial-scale=1";
+	head.appendChild(meta);
 }
 
 function include(files, onload) {
